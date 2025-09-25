@@ -1,0 +1,28 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comic OCR - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Comic OCR Results</h1>
+    {% for result in results %}
+        <h2>Image: {{ result.image }}</h2>
+        <p><strong>Extracted {{ result.bubble_count }} Text Bubbles:</strong></p>
+        <ul>
+            {% for text in result.texts %}
+                <li>Bubble {{ loop.index }}: {{ text }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Words:</strong> {{ result.word_count }}</p>
+        <hr>
+    {% endfor %}
+    <h2>Summary</h2>
+    <p>Total Bubbles: {{ summary.total_bubbles }}</p>
+    <p>Total Words: {{ summary.total_words }}</p>
+    <p>Average Words per Bubble: {{ summary.avg_words_per_bubble }}</p>
+    <a href="{{ url_for('index') }}">Upload More Images</a>
+</body>
+</html>

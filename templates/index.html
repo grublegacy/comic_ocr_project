@@ -1,0 +1,18 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comic OCR - Upload Images</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Comic OCR</h1>
+    <p>Upload comic book images to extract text from speech bubbles.</p>
+    <form method="post" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
+        <input type="file" name="files" multiple accept=".jpg,.jpeg,.png,.webp">
+        <br><br>
+        <button type="submit">Extract Text</button>
+    </form>
+</body>
+</html>
