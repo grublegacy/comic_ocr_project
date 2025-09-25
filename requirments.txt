@@ -1,0 +1,7 @@
+ultralytics
+easyocr
+opencv-python
+spacy
+language-tool-python
+pyspellchecker
+flask
